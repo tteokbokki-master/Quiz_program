@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 프로그램</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+        @font-face { 
+        font-family: "cafe24";
+        src: url("./font/Cafe24Supermagic-Bold-v1.0.otf") format("truetype");
+        font-weight: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="containar">
+        <div id="main-img">
+            <img src="./image/main_image.png">
+        </div>
+        <div class="main-flower">
+            <img src="./image/flower_1.png" id="main-flower-1">
+            <img src="./image/flower_2.png" id="main-flower-2">
+            <img src="./image/flower_3.png" id="main-flower-3">        
+        </div>
+        <div class="main-page">
+            <div id="main-page-quiz"> 
+                <p id="main-page-quiz-p">Quiz</p> 
+            </div>
+            <p id = "main-page-p1">최신 문해력 기르기</p>
+            <p id = "main-page-p2">마구잡이로 주제가 선택되고<br> 총 20문제가 나옵니다.</p>
+            <div id ="main-page-startBtn">
+                <a onclick="make_question()"> 시작하기 </a> <!--문제 생성-->
+            </div>
+        </div>
+    
+        <div class="question-page"> 
+
+            <div ><!--노란 게이지 -->
+                <progress id="progress_bar" value="0" max="100" style="display: none;"></progress>
+            </div>
+
+            <div id="question-page-quiz" style="display: none;">
+                <p id="question-page-quiz-p">1</p> <!--Quiz 1 Quiz 2 등등등-->
+            </div>
+    
+            <div id="question-page-qustion"></div> <!--문제 나오는 곳-->
+    
+            <div id ="question-page-description"> </div> <!--틀렸을 때 해설 나오는 공간-->
+    
+            <div id="question-page-Btn" style="display: none;"> <!--예,아니오 버튼-->
+                <button type="button" id="question-page-yesBtn" onclick="yes_good()"> 예 </button>
+                <button type="button" id="question-page-noBtn" onclick="no_bad()"> 아니요 </button>
+            </div>
+    
+            <div id ="question-page-nextBtn" style="display: none;">
+                <button type="button" id="question-page-nextBtn-1" onclick="make_question()"> 다음 문제 </button> <!--문제 생성-->
+            </div>
+
+            <div id ="question-page-lastBtn" style="display: none;">
+                <button type="button" id="question-page-lastBtn-1" onclick="end_game()"> 결과 확인 </button> <!--문제 생성-->
+            </div>
+
+        </div>
+    
+    
+        <div class="last-page" style="display: none;">
+            <div id="last-page-quiz"> 
+                <p id="last-page-quiz-p">End</p> 
+            </div>
+    
+                
+            <div id = "last-page-ment">  <!-- 끝난 멘트 나오는 곳-->
+                <p id="last-page-lastment">퀴즈결과</p>
+                <p id="last-page-ment-p1"></p> 
+                <p id="last-page-ment-p2"></p>
+            </div>
+    
+            <div id = "new_start"> <!--처음으로 돌아가기-->
+                <a id="new_start_a" onclick="new_start()">처음으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
